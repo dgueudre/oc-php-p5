@@ -28,7 +28,7 @@ class Container
     public function getViewer(): Viewer
     {
         if (empty($this->viewer)) {
-            $this->viewer = new Viewer();
+            $this->viewer = new Viewer($this->getRouter());
         }
         return $this->viewer;
     }

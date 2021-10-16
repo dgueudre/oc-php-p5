@@ -14,9 +14,14 @@ class Router
 
     public function __construct()
     {
-        $this->baseUrl = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
-        $this->requestUri = str_replace([$this->baseUrl, '?' . $_SERVER['QUERY_STRING']], ['', ''], $_SERVER['REQUEST_URI']);
+        $script_name = $_SERVER['SCRIPT_NAME'];
+        $query_string = $_SERVER['QUERY_STRING'];
+        $request_uri = $_SERVER['REQUEST_URI'];
+
+        $this->baseUrl = str_replace('index.php', '', $script_name);
+        $this->requestUri = preg_replace(["#^$this->baseUrl#", "#\?$query_string$#"], ['', ''], $request_uri);
         $this->params = explode('/', $this->requestUri);
+
         $this->module = array_shift($this->params);
         if (empty($this->module)) $this->module = null;
         $this->action = array_shift($this->params);

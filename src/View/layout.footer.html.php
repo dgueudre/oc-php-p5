@@ -1,5 +1,5 @@
 <pre>
 <?php
-// dump(BASE_URL, $_SERVER);
+// var_dump($this->router, $_SERVER);
 ?>
 </pre>
