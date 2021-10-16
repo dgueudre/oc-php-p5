@@ -17,9 +17,6 @@
             "App\\": "src/"
         }
     },
-    "require": {
-        "symfony/dotenv": "^5.3"
-    },
     "config": {
         "platform": {
             "php": "7.4"

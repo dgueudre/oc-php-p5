@@ -1,4 +1,7 @@
 <?php
 
 include '../vendor/autoload.php';
-include 'bootstrap.php';
+include '../settings.php';
+
+$app = new \App\App();
+$app->execute();

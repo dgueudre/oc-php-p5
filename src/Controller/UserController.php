@@ -12,7 +12,7 @@ class UserController extends AbstractController
         $repository = $this->getContainer()->getRepositoryManager()->getUserRepository();
         $result = $repository->install();
 
-        header('Location: /?module=User&action=list');
+        header('Location: ?module=User&action=list');
         exit();
     }
 
@@ -53,7 +53,7 @@ class UserController extends AbstractController
         $repository = $this->getContainer()->getRepositoryManager()->getUserRepository();
         $repository->add($user);
 
-        header('Location: /?module=User&action=list');
+        header('Location: ?module=User&action=list');
         exit();
     }
 
@@ -84,7 +84,7 @@ class UserController extends AbstractController
         $repository = $this->getContainer()->getRepositoryManager()->getUserRepository();
         $repository->update($user);
 
-        header('Location: /?module=User&action=list');
+        header('Location: ?module=User&action=list');
         exit();
     }
 
@@ -95,7 +95,7 @@ class UserController extends AbstractController
         $repository = $this->getContainer()->getRepositoryManager()->getUserRepository();
         $repository->delete($id);
 
-        header('Location: /?module=User&action=list');
+        header('Location: ?module=User&action=list');
         exit();
     }
 }

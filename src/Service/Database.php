@@ -10,10 +10,10 @@ class Database extends \PDO
         return parent::__construct(
             strtr(
                 'mysql:host=%hostname%;dbname=%database%;charset=utf8',
-                ['%database%' => $_ENV['DB_DATABASE'], '%hostname%' => $_ENV['DB_HOSTNAME']]
+                ['%database%' => DB_DATABASE, '%hostname%' => DB_HOSTNAME]
             ),
-            $_ENV['DB_USERNAME'],
-            $_ENV['DB_PASSWORD']
+            DB_USERNAME,
+            DB_PASSWORD
         );
     }
 }

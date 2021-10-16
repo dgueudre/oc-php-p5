@@ -1,4 +1,4 @@
-<form method="POST" action="/?module=User&action=<?= empty($user) ? 'insert' : 'update' ?>">
+<form method="POST" action="?module=User&action=<?= empty($user) ? 'insert' : 'update' ?>">
   <input type="hidden" name="id" value="<?= $user->id ?? '' ?>" />
   <div class="mb-3">
     <label for="login" class="form-label">Login</label>
