@@ -17,13 +17,15 @@ class UserRepository
 
     public function install()
     {
-        $query = 'CREATE TABLE utilisateur (
+        $query = "DROP TABLE IF EXISTS utilisateur;
+        CREATE TABLE utilisateur (
             id INT(11) AUTO_INCREMENT,
             login VARCHAR(255),
             password VARCHAR(255),
             mail VARCHAR(255),
             PRIMARY KEY (id)
-        );';
+        );
+        INSERT INTO utilisateur(login, password, mail) VALUES ('dgueudre', 'demo', 'dgueudre@test.local')";
         return $this->db->query($query);
     }
 
