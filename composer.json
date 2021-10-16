@@ -1,0 +1,28 @@
+{
+    "name": "dgueudre/oc-php-p5",
+    "version": "1.0.0",
+    "type": "website",
+    "description": "Web Development - HTML, CSS, PHP, SQL",
+    "keywords": [
+        "php",
+        "mvc"
+    ],
+    "authors": [
+        {
+            "name": "Davy Gueudré"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require": {
+        "symfony/dotenv": "^5.3"
+    },
+    "config": {
+        "platform": {
+            "php": "7.4"
+        }
+    }
+}
