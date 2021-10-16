@@ -12,7 +12,7 @@ class UserController extends AbstractController
         $repository = $this->getContainer()->getRepositoryManager()->getUserRepository();
         $result = $repository->install();
 
-        header('Location: ?module=User&action=list');
+        header('Location: ' . BASE_URL . 'User/list');
         exit();
     }
 
@@ -53,13 +53,12 @@ class UserController extends AbstractController
         $repository = $this->getContainer()->getRepositoryManager()->getUserRepository();
         $repository->add($user);
 
-        header('Location: ?module=User&action=list');
+        header('Location: ' . BASE_URL . 'User/list');
         exit();
     }
 
-    public function modify()
+    public function modify($id)
     {
-        $id = $_GET['id'];
         $repository = $this->getContainer()->getRepositoryManager()->getUserRepository();
         $user = $repository->get($id);
 
@@ -73,10 +72,10 @@ class UserController extends AbstractController
         ]);
     }
 
-    public function update()
+    public function update($id)
     {
         $user = new User();
-        $user->id = $_POST['id'];
+        $user->id = $id;
         $user->login = $_POST['login'];
         $user->password = $_POST['password'];
         $user->mail = $_POST['mail'];
@@ -84,18 +83,16 @@ class UserController extends AbstractController
         $repository = $this->getContainer()->getRepositoryManager()->getUserRepository();
         $repository->update($user);
 
-        header('Location: ?module=User&action=list');
+        header('Location: ' . BASE_URL . 'User/list');
         exit();
     }
 
-    public function delete()
+    public function delete($id)
     {
-        $id = $_GET['id'];
-
         $repository = $this->getContainer()->getRepositoryManager()->getUserRepository();
         $repository->delete($id);
 
-        header('Location: ?module=User&action=list');
+        header('Location: ' . BASE_URL . 'User/list');
         exit();
     }
 }

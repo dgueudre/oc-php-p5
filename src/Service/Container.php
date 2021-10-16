@@ -5,6 +5,7 @@ namespace App\Service;
 class Container
 {
     private $database;
+    private $router;
     private $viewer;
     private $repositoryManager;
 
@@ -14,6 +15,14 @@ class Container
             $this->database = new Database();
         }
         return $this->database;
+    }
+
+    public function getRouter(): Router
+    {
+        if (empty($this->router)) {
+            $this->router = new Router();
+        }
+        return $this->router;
     }
 
     public function getViewer(): Viewer

@@ -7,13 +7,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="?">Home</a>
+          <a class="nav-link active" aria-current="page" href="">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="?module=User&action=list">Utilisateurs</a>
+          <a class="nav-link" href="User/list">Utilisateurs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="?module=Post&action=list">Blog</a>
+          <a class="nav-link" href="Post/list">Blog</a>
         </li>
       </ul>
     </div>
