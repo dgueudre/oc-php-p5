@@ -3,12 +3,12 @@
 namespace App\Service;
 
 use App\Model\Repository\UserRepository;
-use App\Util\Collection;
 
-class RepositoryManager extends Collection
+class RepositoryManager
 {
 
     private $db;
+    private $userRepository;
 
     public function __construct($db)
     {
@@ -17,6 +17,9 @@ class RepositoryManager extends Collection
 
     public function getUserRepository(): UserRepository
     {
-        return $this->get(UserRepository::class, $this->db);
+        if (empty($this->userRepository)) {
+            $this->userRepository = new UserRepository($this->db);
+        }
+        return $this->userRepository;
     }
 }

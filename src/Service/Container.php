@@ -2,23 +2,33 @@
 
 namespace App\Service;
 
-use App\Util\Collection;
-
-class Container extends Collection
+class Container
 {
+    private $database;
+    private $viewer;
+    private $repositoryManager;
 
     public function getDatabase(): Database
     {
-        return $this->get(Database::class);
+        if (empty($this->database)) {
+            $this->database = new Database();
+        }
+        return $this->database;
     }
 
     public function getViewer(): Viewer
     {
-        return $this->get(Viewer::class);
+        if (empty($this->viewer)) {
+            $this->viewer = new Viewer();
+        }
+        return $this->viewer;
     }
 
     public function getRepositoryManager(): RepositoryManager
     {
-        return $this->get(RepositoryManager::class, $this->getDatabase());
+        if (empty($this->repositoryManager)) {
+            $this->repositoryManager = new RepositoryManager($this->getDatabase());
+        }
+        return $this->repositoryManager;
     }
 }
